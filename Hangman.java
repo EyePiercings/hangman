@@ -72,8 +72,6 @@ public class Hangman {
 
       System.out.print("Your guess: ");
       String guess = in.next().toUpperCase();
-      //System.out.println(guess);
-
       
       if(hidden.contains(guess)) {
         System.out.println("That letter has already been found, try again.");
@@ -82,7 +80,6 @@ public class Hangman {
         guessesLeft--;
       } else {
         hidden = revealLetter(playWord, guess, hidden);
-        guessesLeft--;
         System.out.println("That guess is correct.");
       }
       
@@ -90,7 +87,8 @@ public class Hangman {
       // Win condition
       if(playWord.equals(hidden)) {
         System.out.println("You guessed the word: " + playWord);
-
+        System.out.println("You win.");
+        break;
       } 
       // Lose condition
       else if(guessesLeft == 0) {
